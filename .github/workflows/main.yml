@@ -22,5 +22,6 @@ jobs:
     - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
     - run: Net user Ghailan Mgkocak1 /ADD
     - run: Set-LocalUser -Name "Ghailan" -Password (ConvertTo-SecureString -AsPlainText "Mgkocak1" -Force)
+    - run: NET LOCALGROUP "Remote Desktop Users" GHailan /ADD
     - name: Create Tunnel
       run: .\ngrok\ngrok.exe tcp 3389
